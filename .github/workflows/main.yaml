@@ -2,7 +2,9 @@
 ## This is done by using flake8 
 name : Linting
 
-on : git push
+on : 
+  push : 
+    branches : [master]
 
 jobs : 
   Linting_proecess:
