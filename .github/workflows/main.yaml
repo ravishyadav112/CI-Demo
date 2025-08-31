@@ -1,0 +1,26 @@
+##Linting a way to write a ode in a good way or standard way or some different things.
+## This is done by using flake8 
+name : Linting
+
+on : git push
+
+jobs : 
+  Linting_proecess:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name : Checkout code 
+          uses : actions/checkout@v3
+
+        - name : Set up python 
+          uses : actions/setup-python@v4
+          with : 
+            python-version : '3.8'
+          
+        - name : Install flake8
+          run : |
+            python -m pip install --upgrade pip
+            pip install flake8
+        - name: Run flake8
+          run : |
+            flake8 app.py
